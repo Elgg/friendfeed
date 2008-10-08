@@ -13,6 +13,6 @@
 	padding:2px 0 2px 0;
 }
 .friendfeed_stamp {
-	font-size:70%;
+	font-size:85%;
 	color:#666666;
 }
