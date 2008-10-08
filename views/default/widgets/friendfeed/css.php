@@ -16,3 +16,14 @@
 	font-size:85%;
 	color:#666666;
 }
+
+.friendfeed_title img {
+	margin-right: 5px;
+	float:left;
+	height:16px;
+	width:16px;
+}
+
+div.ff_media {
+	margin:4px 0 4px 0;
+}
