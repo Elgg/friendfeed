@@ -39,8 +39,16 @@
 							$updated = friendly_time($entry->updated);
 							$title = $entry->title;
 							$service = $entry->service->name;
+							$service_icon = $entry->service->iconUrl;
 							$link = $entry->link;
 							$url = $entry->service->profileUrl;
+							
+							foreach ($entry->media as $media) {
+	                            foreach ($media->thumbnails as $thumb) {
+                                    $data .= '<a href="' . $link . '"><img src="'.$thumb->url.'" /></a>';
+                                }
+                            }
+
 							
 							if (isset($entry->service->entryType)) {
 								$entrytype = $entry->service->entryType;
@@ -57,12 +65,13 @@
 
 	<div class="friendfeed_item">
 		<p>
-			<span class="friendfeed_title"><?php echo $entrytype; ?> <a href="<?php echo $link; ?>"><?php echo $title; ?></a></span>:
-			<span class="friendfeed_stamp"><a href="<?php echo $url; ?>"><?php echo $service; ?></a>, <?php echo $updated; ?></span>
+			<span class="friendfeed_title"><img src="<?php echo $service_icon; ?>" /><?php echo $entrytype; ?> <a href="<?php echo $link; ?>"><?php echo $title; ?></a></span>:
+			<span class="friendfeed_stamp"><a href="<?php echo $url; ?>"><?php echo $service; ?></a>, <?php echo $updated . "<br /><div class=\"ff_media\">" . $data; ?></div></span>
 		</p>
 	</div>
 
 <?php
+							$data = ''; //clear data
 							
 						}
 					} else {
