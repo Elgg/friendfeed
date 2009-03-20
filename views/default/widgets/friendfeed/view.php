@@ -15,7 +15,7 @@
 	<style type="text/css">
 	<?php echo elgg_view('widgets/friendfeed/css'); ?>
 	</style>
- 
+<div class="contentWrapper">
 <?php
 
 		$username = $vars['entity']->username;
@@ -95,3 +95,4 @@
 		}
 
 ?>
+</div>
